@@ -1,6 +1,6 @@
 import { HashRouter as Router, Route } from "react-router-dom";
 import React from "react";
-import ComponentTest from "./components/ComponentTest";
+import Movie from "./components/Movie";
 import ComponentTestTwo from "./components/ComponentTestTwo";
 import axios from "axios";
 
@@ -38,13 +38,20 @@ class App extends React.Component {
         {routeChange ? (
           <div>
             <ul>
-              {movies.map((e, index) => (
-                <li key={index}>{e.id}</li>
-              ))}
+              {movies.map((e, index) => {
+                console.log(e);
+                return (
+                  <Movie
+                    key={index}
+                    image={e.background_image}
+                    title={e.title}
+                  />
+                );
+              })}
             </ul>
           </div>
         ) : (
-          <Route exact path="/" component={ComponentTest} />
+          <Route exact path="/" component={ComponentTestTwo} />
         )}
       </Router>
     );
