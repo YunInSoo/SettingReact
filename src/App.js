@@ -3,6 +3,7 @@ import React from "react";
 import Movie from "./components/Movie";
 import ComponentTestTwo from "./components/ComponentTestTwo";
 import axios from "axios";
+import "./App.css";
 
 class App extends React.Component {
   state = {
@@ -45,6 +46,7 @@ class App extends React.Component {
                     key={index}
                     image={e.background_image}
                     title={e.title}
+                    genres={e.genres}
                   />
                 );
               })}
